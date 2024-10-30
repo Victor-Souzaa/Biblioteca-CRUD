@@ -1,0 +1,212 @@
+/* global_css */
+
+/* imports tools */
+@import url("tools.basicreset.css");
+
+body {
+  background-color: rgba(0, 0, 0, 0.384);
+  background-image: url(https://p4.wallpaperbetter.com/wallpaper/548/555/607/old-books-wallpaper-preview.jpg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.btn-xyz {
+  background-color: var(--color-white);
+}
+
+form {
+  background: linear-gradient(
+    90deg,
+    rgba(204, 199, 199, 0.226) 0%,
+    rgba(82, 75, 75, 0.507) 50%,
+    rgb(56, 54, 54) 100%
+  );
+  padding: 100px;
+  border-radius: 2%;
+  text-align: justify;
+  font-family: cursive;
+  box-shadow: 0px 4px 10px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.title {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  color: #cfdad8;
+}
+
+h2 {
+  padding-bottom: 10px;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  margin-top: 5px;
+  display: none;
+}
+
+input {
+  background-color: #ccc;
+  border: 1px solid #cccccc3d;
+  padding: 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+input::placeholder {
+  color: #afafaf;
+}
+
+button {
+  background-color: #171817f8;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  transition: background-color 1s ease, transform 0.5s ease;
+  width: 150px;
+}
+
+button:hover {
+  background-color: #373837;
+  transform: scale(1.08);
+}
+
+button:active {
+  background-color: #636863;
+}
+
+button:disabled {
+  background-color: #494c4c;
+
+  cursor: not-allowed;
+}
+.button-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding-top: 15px;
+  justify-content: center;
+}
+
+.button-login-item {
+  margin: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-login-item button {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+  width: 200px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.clear {
+  background-color: #37383790;
+  border: none;
+}
+
+.solid {
+  background-color: #37383790;
+  border: none;
+  color: #fff;
+}
+
+.outline {
+  background-color: #37383790;
+  color: #fff;
+}
+
+div i {
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  right: 10%;
+  color: #7a7a7a;
+  width: 1px;
+}
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+input {
+  width: 100%;
+  padding-right: 40px;
+  margin-top: 5px;
+  background-color: #37383790;
+}
+
+.password-wrapper i {
+  position: absolute;
+  right: 10px;
+  top: 70%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #7a7a7a;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 14px;
+  font-family: "Arial", sans-serif;
+  margin-top: 5px;
+  height: 18px;
+  display: block;
+  visibility: hidden;
+}
+
+.error-message.active {
+  visibility: visible;
+}
+
+.password-wrapper i {
+  position: absolute;
+  right: 10px;
+  top: 52%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  color: #7a7a7a;
+}

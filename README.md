@@ -70,7 +70,7 @@ biblioteca-login/
 
 Aqui está uma prévia do layout da página de login:
 
-![Preview](/image/Login-biblioteca.jpeg)
+![Preview](/public/image/Login-biblioteca.jpeg)
 
 ## Contato
 
