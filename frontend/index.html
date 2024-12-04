@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca</title>
+    <link
+      rel="shortcut icon"
+      href="public/image/fv.png.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles/style.css" />
+  </head>
+  <body>
+    <header></header>
+
+    <main class="principal">
+      <div class="content">
+        <form id="loginForm" onsubmit="cadastrarUsuario(event)">
+          <h1 class="title">Minimundo</h1>
+          <hr />
+          <br />
+          <h2 class="title">Institucional</h2>
+          <div>
+              <div><label>Email</label></div>
+              <input
+                class="input"
+                id="email"
+                onchange="validateFields()"
+                type="email"
+                name="email"
+                placeholder="seu email"
+              />
+              <span id="email-error" class="error-message">Por favor, insira um email válido.</span>
+          </div>
+          <div class="password-wrapper">
+              <div><label>Senha</label></div>
+              <div class="input-container">
+                  <input
+                    class="input"
+                    id="password"
+                    onchange="validateFields()"
+                    type="password"
+                    name="password"
+                    placeholder="sua senha"
+                  />
+                  <i
+                    class="bi bi-eye-fill eye"
+                    id="btn-senha"
+                    onclick="mostrarSenha()"
+                  ></i>
+              </div>
+              <span id="password-error" class="error-message">Por favor, preencha a senha.</span>
+          </div>
+          <div class="button-login">
+              <div class="button-login-item">
+                  <button class="clear" id="recover-password-button" disabled="true" type="button">
+                      Recuperar Senha
+                  </button>
+              </div>
+              <div class="button-login-item">
+                  <button class="solid" id="login-button" disabled="true" type="submit">
+                      Entrar
+                  </button>
+              </div>
+              <div class="button-login-item">
+                  <a href="src/pages/usuarioExterno.html">
+                      <button class="outline" type="button">Usuário Externo</button>
+                  </a>
+              </div>
+          </div>
+      </form>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+
+  <script src="src/main.js"></script>
+  <script src="src/utils/validations.js"></script>
+
+</html>

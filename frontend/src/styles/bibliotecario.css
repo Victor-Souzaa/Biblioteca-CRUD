@@ -1,0 +1,248 @@
+/* Estilos Globais */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+}
+
+/* Nome do bibliotecário */
+.nome-bibliotecario {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  flex: 1;
+}
+
+/* Menu Hambúrguer */
+.menu-hamburguer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: transform 0.3s ease;
+  z-index: 15;
+}
+
+.menu-hamburguer span {
+  background: #fff;
+  height: 3px;
+  width: 25px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-hamburguer.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.menu-hamburguer.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-hamburguer.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* Menu Lateral */
+.nav-links {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 250px;
+  height: 100%;
+  background-color: #003366;
+  color: #fff;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px 0 0 10px;
+  transition: right 0.3s ease;
+  z-index: 10;
+  padding-top: 50px;
+}
+
+.nav-links.active {
+  right: 0;
+}
+
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links ul li {
+  margin: 15px 0;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 12px 20px;
+  display: block;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-links ul li a:hover {
+  background-color: #4b6b8c;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-links ul li a:active {
+  background-color: #3a4e61;
+}
+
+/* Main */
+main {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  min-height: calc(100vh - 80px);
+  box-sizing: border-box;
+}
+
+.registros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.registro-card {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.registro-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.registro-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #003366;
+}
+
+.registro-card p {
+  font-size: 18px;
+  font-weight: 400;
+  color: #333;
+}
+
+/* Footer */
+footer {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    width: 100%;
+    padding-top: 40px;
+  }
+
+  .registros {
+    grid-template-columns: 1fr;
+  }
+
+  .registro-card {
+    margin: 10px 0;
+  }
+
+  /* Ajuste do menu de hambúrguer em telas pequenas */
+  .menu-hamburguer {
+    right: 10px;
+  }
+}
+/* Footer */
+footer {
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 5px 0;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #ffcc00;
+}

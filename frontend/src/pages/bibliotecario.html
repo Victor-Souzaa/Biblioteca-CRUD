@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliotecário - Biblioteca</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/bibliotecario.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a href="#" class="logo">Biblioteca</a>
+            <!-- Nome do Bibliotecário adicionado e centralizado -->
+            <div class="nome-bibliotecario">
+                <span>Bem vindo</span>
+            </div>
+            <div class="menu-hamburguer" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav-links" id="nav-links">
+                <ul>
+                    <li><a href="../pages/bibliotecario.html">Perfil</a></li>
+                    <li><a href="../pages/emprestimo.html">Validar Empréstimos</a></li>
+                    <li><a href="../pages/devolucao.html">Devoluções</a></li>
+                    <li><a href="../pages/multas.html">Multas</a></li>
+                    <li><a href="../pages/cadastrarLivros.html">Cadastrar Livros</a></li>
+                    <li><a href="../../index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+
+    <main>
+        <section class="registros full-height">
+            <div class="registro-card">
+                <h3>Total de Livros Disponíveis</h3>
+                <p id="livros-disponiveis">0</p>
+            </div>
+            <div class="registro-card">
+                <h3>Total de Multas</h3>
+                <p id="total-multas">0</p>
+            </div>
+            <div class="registro-card">
+                <h3>Total de Empréstimos</h3>
+                <p id="total-emprestimos">0</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Biblioteca Online. Todos os direitos reservados.</p>
+            <div class="social-media">
+                <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/bibliotecario.js"></script>
+</body>
+</html>

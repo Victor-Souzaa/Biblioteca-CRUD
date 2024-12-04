@@ -1,0 +1,341 @@
+/* Estilos Globais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #003366;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Menu de Hambúrguer Pequeno no Canto Direito */
+.menu-hamburguer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburguer span {
+    background: #fff;
+    height: 3px;
+    width: 20px;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #002244;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links ul li {
+    margin: 10px 0;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    color: #ffcc00;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    gap: 10px;
+    padding: 10px 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    width: 70%;
+}
+
+.search-bar button {
+    background: #004080;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button:hover {
+    background: #0055b3;
+}
+
+/* Garantir que o ícone (SVG) não ultrapasse o tamanho do botão */
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Estilo da barra de pesquisa */
+.search-bar {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 8px 15px;
+    background-color: #fff;
+}
+
+/* Input de pesquisa */
+#search-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Botão de pesquisa */
+#search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 10px;
+}
+
+/* Sugestões de pesquisa */
+.search-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #a3a3a3;
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 250px;
+    overflow-y: auto;
+    width: 100%;
+    z-index: 1000;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Lista de sugestões */
+.search-suggestions ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Itens da lista */
+.search-suggestions li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+}
+
+/* Hover nos itens da lista */
+.search-suggestions li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Exibição das sugestões */
+.search-suggestions.show {
+    display: block;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 100%;
+    }
+
+    #search-input {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .search-suggestions li {
+        font-size: 12px;
+    }
+
+    .livros {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .livro-card {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #search-input {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .search-suggestions li {
+        font-size: 10px;
+    }
+
+    .livros {
+        grid-template-columns: 1fr;
+    }
+
+    .livro-card {
+        padding: 8px;
+    }
+}
+
+/* Main */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.livros {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.livro-card {
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Alinha o conteúdo à esquerda para mais legibilidade */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.livro-card:hover {
+    transform: translateY(-5px); /* Efeito de hover para dar leveza */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.livro-card h3 {
+    font-size: 1.2em;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+.livro-card p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+.livro-card p strong {
+    font-weight: bold;
+}
+
+/* Paginação */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background: #003366;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.pagination button:hover {
+    background: #004080;
+}
+
+.pagination button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Footer */
+footer {
+    background: #003366;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobrança de Multas - Biblioteca</title>
+    <link rel="stylesheet" href="../styles/multa.css">
+</head>
+<body>
+    <header>
+        <h1>Gestão de Multas</h1>
+    </header>
+    <main>
+        <section class="multas-section">
+            <h2>Lista de Multas Pendentes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Usuário</th>
+                        <th>Data Empréstimo</th>
+                        <th>Data Devolução</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-multas">
+                    <!-- As multas serão geradas dinamicamente aqui -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Biblioteca Online</p>
+    </footer>
+    <script src="../scripts/multas.js"></script>
+</body>
+</html>
