@@ -53,16 +53,16 @@ app.post('/login', async (req, res) => {
     let paginaDestino;
     switch (usuario.tipo_usuario) {
       case 'Aluno':
-        paginaDestino = 'http://127.0.0.1:5500/frontend/src/pages/aluno.html';
+        paginaDestino = 'http://127.0.0.1:5500/Biblioteca-CRUD/frontend/src/pages/aluno.html';
         break;
       case 'Professor':
-        paginaDestino = 'http://127.0.0.1:5500/frontend/src/pages/professor.html';
+        paginaDestino = 'http://127.0.0.1:5500/Biblioteca-CRUD/frontend/src/pages/professor.html';
         break;
       case 'Bibliotecario':
-        paginaDestino = 'http://127.0.0.1:5500/frontend/src/pages/bibliotecario.html';
+        paginaDestino = 'http://127.0.0.1:5500/Biblioteca-CRUD/frontend/src/pages/bibliotecario.html';
         break;
       case 'Administrador':
-        paginaDestino = 'http://127.0.0.1:5500/frontend/src/pages/admCadastroUser.html';
+        paginaDestino = 'http://127.0.0.1:5500/Biblioteca-CRUD/frontend/src/pages/admCadastroUser.html';
         break;
       default:
         return res.status(400).json({ message: 'Tipo de usuário desconhecido' });
