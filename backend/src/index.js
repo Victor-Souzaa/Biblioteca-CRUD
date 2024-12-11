@@ -661,37 +661,94 @@ app.post('/api/devolucao', async (req, res) => {
 
 
 // Multas
+
+// Endpoint para gerar multas automaticamente
+app.post('/api/multas/gerar', async (req, res) => {
+  try {
+    // Consultando os empréstimos que estão em atraso
+    const result = await pool.query(`
+      SELECT e.id AS emprestimo_id, e.id_usuario, e.data_pegou, e.data_devolveu, u.nome
+      FROM Emprestimo e
+      JOIN Usuario u ON e.id_usuario = u.id
+      WHERE e.data_devolveu IS NULL OR e.data_devolveu < CURRENT_DATE - INTERVAL '15 days'
+    `);
+
+    // Para cada empréstimo em atraso, gera uma multa
+    for (const emprestimo of result.rows) {
+      // Calculando a diferença em dias entre a data atual e a data de empréstimo
+      const diasAtraso = Math.ceil((new Date() - new Date(emprestimo.data_pegou)) / (1000 * 60 * 60 * 24));
+
+      // Verifica se o atraso é maior que 15 dias
+      if (diasAtraso > 15) {
+        // Calculando o valor da multa: R$ 20,00 + R$ 1,00 por dia de atraso além dos 15 dias
+        const valorMulta = 20 + (diasAtraso - 15); // 20 + 1 por dia de atraso além dos 15 dias
+
+        // Registrando a multa na tabela de Multa
+        await pool.query(`
+          INSERT INTO Multa (valor, data, id_usuario) 
+          VALUES ($1, CURRENT_DATE, $2)
+        `, [valorMulta, emprestimo.id_usuario]);
+      }
+    }
+
+    res.status(200).json({ mensagem: 'Multas geradas com sucesso!' });
+  } catch (error) {
+    console.error('Erro ao gerar multas:', error);
+    res.status(500).json({ mensagem: 'Erro ao gerar as multas.' });
+  }
+});
+
 // Endpoint para listar as multas
 app.get('/api/multas', async (req, res) => {
   try {
-      const result = await pool.query(`
-          SELECT u.nome, e.data_pegou, e.data_devolveu, m.valor, m.data
-          FROM Emprestimo e
-          JOIN Usuario u ON e.id_usuario = u.id
-          LEFT JOIN Multa m ON e.id = m.id_emprestimo
-          WHERE e.data_devolveu IS NULL
-      `);
+    const result = await pool.query(`
+      SELECT u.nome, e.data_pegou, e.data_devolveu, m.valor, m.data AS data_multa, e.id AS emprestimo_id
+      FROM Emprestimo e
+      JOIN Usuario u ON e.id_usuario = u.id
+      LEFT JOIN Multa m ON e.id_usuario = m.id_usuario
+      WHERE e.data_devolveu IS NULL OR e.data_devolveu > CURRENT_DATE - INTERVAL '15 days'
+    `);
 
-      const multas = result.rows.map(row => {
-          const diasAtraso = Math.ceil((new Date() - new Date(row.data_devolveu)) / (1000 * 60 * 60 * 24));
-          const diasTolerancia = row.renovado ? 30 : 15;
-          const valorMulta = 20 + (diasAtraso - diasTolerancia) * 1;
+    const multas = result.rows.map(row => {
+      const diasAtraso = row.data_devolveu ? Math.ceil((new Date() - new Date(row.data_devolveu)) / (1000 * 60 * 60 * 24)) : 0;
+      const valorMulta = row.valor || (diasAtraso > 15 ? 20 + (diasAtraso - 15) : 0);  // Calcula multa se não houver valor
 
-          return {
-              usuario: row.nome,
-              dataEmprestimo: row.data_pegou,
-              dataDevolucao: row.data_devolveu,
-              valor: valorMulta > 0 ? valorMulta : 0,
-              status: valorMulta > 0 ? 'Pendente' : 'Pago'
-          };
-      });
+      return {
+        id: row.emprestimo_id,
+        usuario: row.nome,
+        dataEmprestimo: row.data_pegou,
+        dataDevolucao: row.data_devolveu || 'Não devolvido',
+        valor: valorMulta,
+        status: row.valor ? 'Paga' : 'Pendente',
+        dataMulta: row.data_multa || 'Ainda não gerada'
+      };
+    });
 
-      res.status(200).json(multas);
+    res.status(200).json(multas);
   } catch (error) {
-      console.error(error);
-      res.status(500).json({ mensagem: 'Erro ao listar as multas.' });
+    console.error(error);
+    res.status(500).json({ mensagem: 'Erro ao listar as multas.' });
   }
 });
+
+
+// Endpoint para pagar a multa
+app.post('/api/multa/pagar/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Atualizar o status da multa
+    await pool.query(`
+      UPDATE Multa SET status = 'Paga' WHERE id_emprestimo = $1
+    `, [id]);
+
+    res.status(200).json({ mensagem: 'Multa paga com sucesso!' });
+  } catch (error) {
+    console.error('Erro ao pagar multa:', error);
+    res.status(500).json({ mensagem: 'Erro ao pagar multa' });
+  }
+});
+
 
 // Endpoint para cobrar a multa
 app.post('/api/multa/cobrar', async (req, res) => {
@@ -791,21 +848,6 @@ app.get('/calcular-multas', async (req, res) => {
   }
 });
 
- // Atualizar o status da multa para paga
-app.post('/pagar/:id', async (req, res) => {
-  try {
-      const { id } = req.params;
-
-      await pool.query(`
-          UPDATE Multa SET status = 'Paga' WHERE id = $1
-      `, [id]);
-
-      res.status(200).json({ mensagem: 'Multa paga com sucesso!' });
-  } catch (error) {
-      console.error('Erro ao pagar multa:', error);
-      res.status(500).json({ mensagem: 'Erro ao pagar multa' });
-  }
-});
 
 
 app.get('/', (req, res) => {
