@@ -1,0 +1,160 @@
+/* Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: #003366; /* Cor do fundo do header */
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Logo */
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Menu de Hambúrguer Pequeno no Canto Direito */
+.menu-hamburguer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburguer span {
+    background: #fff;
+    height: 3px;
+    width: 20px;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #002244; /* Cor do fundo do menu de hambúrguer */
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links ul li {
+    margin: 10px 0;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    color: #ffcc00; /* Cor de destaque ao passar o mouse */
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+/* Main */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Formulário */
+.form-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #003366; /* Cor do botão */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #004080; /* Cor de hover do botão */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366; /* Cor do footer */
+    color: white;
+}

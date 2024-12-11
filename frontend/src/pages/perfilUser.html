@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="../styles/perfilUser.css">
+</head>
+<body>
+  <header>
+    <h1>Perfil do Usuário</h1>
+  </header>
+
+  <main>
+    <section class="perfil-container">
+      <div class="perfil-header">
+        <div class="foto-container">
+          <img src="../assets/default-profile.png" alt="Foto de Perfil" id="foto-perfil">
+        </div>
+        <h2 id="nome-usuario">João da Silva</h2>
+        <p id="email-usuario">joao.silva@email.com</p>
+        <button id="editar-perfil" class="btn-editar">
+          <img src="../assets/edit-icon.png" alt="Editar"> Editar Perfil
+        </button>
+      </div>
+
+      <div class="perfil-detalhes">
+        <p><strong>Matrícula:</strong> <span id="matricula-usuario">123456</span></p>
+        <p><strong>Endereço:</strong> <span id="endereco-usuario">Rua das Flores, 123</span></p>
+        <p><strong>CEP:</strong> <span id="cep-usuario">12345-678</span></p>
+        <p><strong>Data de Nascimento:</strong> <span id="nascimento-usuario">01/01/1990</span></p>
+        <p><strong>Status:</strong> <span id="status-usuario">Ativo</span></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal para edição do perfil -->
+  <div id="modal-editar" class="modal hidden">
+    <div class="modal-content">
+      <span id="fechar-modal" class="fechar">&times;</span>
+      <h2>Editar Perfil</h2>
+      <form id="form-edicao">
+        <!-- Dados do usuário -->
+        <div class="info">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome">
+        </div>
+        <div class="info">
+          <label for="email">E-mail:</label>
+          <input type="email" id="email">
+        </div>
+        <div class="info">
+          <label for="endereco">Endereço:</label>
+          <input type="text" id="endereco">
+        </div>
+        <div class="info">
+          <label for="cep">CEP:</label>
+          <input type="text" id="cep">
+        </div>
+        <div class="info">
+          <label for="data_nascimento">Data de Nascimento:</label>
+          <input type="date" id="data_nascimento">
+        </div>
+        <div class="info">
+          <label for="status">Status:</label>
+          <select id="status">
+            <option value="ativo">Ativo</option>
+            <option value="inativo">Inativo</option>
+          </select>
+        </div>
+        <button type="submit">Salvar Alterações</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Biblioteca</p>
+  </footer>
+
+  <script src="../scripts/perfilUser.js"></script>
+</body>
+</html>

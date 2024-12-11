@@ -1,0 +1,196 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #003366;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+}
+
+.menu-hamburguer {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-hamburguer span {
+    background: #fff;
+    height: 3px;
+    width: 20px;
+    transition: 0.3s;
+}
+
+.nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #002244;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    width: 200px;
+    padding: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.nav-links ul li {
+    margin: 10px 0;
+}
+
+.nav-links ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+    color: #ffcc00;
+}
+
+.nav-links.active {
+    display: flex;
+}
+
+/* Estilos do formulário de cadastro de livro */
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.cadastro-livro {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+input,
+textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #004080;
+}
+
+/* Estilos do Footer */
+footer {
+    background: #003366;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 20px;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ffcc00;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .cadastro-livro {
+        padding: 15px;}
+}

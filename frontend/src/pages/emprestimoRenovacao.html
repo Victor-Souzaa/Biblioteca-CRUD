@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renovação de Empréstimos - Biblioteca</title>
+    <link rel="stylesheet" href="../styles/emprestimoRenovacao.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Biblioteca Online</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/emprestimos">Empréstimos</a></li>
+                    <li><a href="/renovacao">Renovação</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <section class="form-section">
+                <h2 class="section-title">Renovação de Empréstimos</h2>
+                <p>Selecione o empréstimo para renovação e veja a data anterior.</p>
+                <div id="renovacao-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome do Usuário</th>
+                                <th>Título do Livro</th>
+                                <th>Data de Empréstimo</th>
+                                <th>Última Renovação</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="renovacoesTbody">
+                            <!-- Dados de renovação serão carregados aqui -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2024 Biblioteca Online</p>
+    </footer>
+
+    <script src="../scripts/emprestimoRenovacao.js"></script>
+</body>
+</html>

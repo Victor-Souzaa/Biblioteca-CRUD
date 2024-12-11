@@ -1,0 +1,227 @@
+/* Reset básico */
+body, h1, h2, p, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+  
+/* Cabeçalho */
+header {
+    background-color: #4A90E2;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+header h1 {
+    font-size: 1.8rem;
+}
+  
+/* Conteúdo principal */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100vh - 100px);
+    padding: 2rem;
+}
+  
+.perfil-container {
+    width: 100%;
+    max-width: 600px;
+    background: #fff;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+  
+.perfil-header {
+    background: linear-gradient(135deg, #4A90E2, #72B6F9);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+}
+  
+.foto-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    margin-top: -60px;
+    background-color: #f0f0f0;
+}
+  
+.perfil-header h2 {
+    font-size: 1.5rem;
+    margin-top: 0.8rem;
+}
+  
+.perfil-header p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+  
+.btn-editar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    color: #4A90E2;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+  
+.btn-editar img {
+    width: 18px;
+    height: 18px;
+}
+  
+.btn-editar:hover {
+    background-color: #e7f3ff;
+}
+  
+.perfil-detalhes {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+}
+  
+.perfil-detalhes p {
+    font-size: 0.9rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+  
+.perfil-detalhes p strong {
+    font-size: 0.85rem;
+    color: #666;
+}
+  
+/* Modal de edição */
+/* Modal de edição */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px; /* Afastando o modal das bordas */
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s ease-in-out;
+    position: relative;
+    max-height: 80vh; /* Máximo de 80% da altura da tela */
+    overflow-y: auto; /* Permite o scroll interno quando necessário */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #4A90E2;
+}
+
+/* Fechar (X) */
+.fechar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.fechar:hover {
+    color: #555;
+}
+
+/* Outras classes do modal */
+.info {
+    margin-bottom: 1.5rem;
+}
+
+.info label {
+    display: block;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.info input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+button[type="submit"] {
+    background-color: #4A90E2;
+    color: #fff;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+button[type="submit"]:hover {
+    background-color: #357ABD;
+}
+
+  
+/* Responsividade */
+@media (max-width: 768px) {
+    .perfil-detalhes {
+        grid-template-columns: 1fr;
+    }
+}

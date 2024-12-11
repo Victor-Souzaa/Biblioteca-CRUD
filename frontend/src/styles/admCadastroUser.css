@@ -1,0 +1,180 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: #003366;
+  color: #fff;
+  padding: 15px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Menu de Hambúrguer Pequeno no Canto Direito */
+.menu-hamburguer {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.menu-hamburguer span {
+  background: #fff;
+  height: 3px;
+  width: 20px;
+  transition: 0.3s;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  background: #002244;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 200px;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-links ul li {
+  margin: 10px 0;
+}
+
+.nav-links ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.nav-links ul li a:hover {
+  color: #ffcc00;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+/* Formulário */
+.principal {
+  padding: 40px 20px;
+  max-width: 600px; /* Largura máxima do formulário */
+  margin: auto; /* Centraliza o conteúdo */
+  background-color: #ffffff; /* Fundo branco para o formulário */
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.title {
+  text-align: center;
+  font-size: 28px; /* Tamanho da fonte */
+  color: #003366; /* Cor do título */
+}
+
+hr {
+  margin: 20px 0; /* Margem para o separador */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Espaçamento entre os grupos do formulário */
+}
+
+.input {
+  width: 100%; /* Largura total do input */
+  padding: 10px; /* Espaçamento interno */
+  border: 1px solid #dddddd; /* Bordas do input */
+  border-radius: 4px; /* Bordas arredondadas */
+  font-size: 16px; /* Tamanho da fonte */
+}
+
+.solid {
+  background-color: #00509e; /* Azul do botão */
+  color: #ffffff; /* Texto branco */
+  border: none; /* Sem borda */
+  padding: 10px 20px; /* Espaçamento interno do botão */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor em forma de mão */
+  transition: background-color 0.3s; /* Transição suave */
+}
+
+.solid:hover {
+  background-color: #0066cc; /* Azul mais claro no hover */
+}
+
+/* Footer */
+footer {
+  background-color: #003366; /* Azul escuro */
+  color: #ffffff; /* Texto branco */
+  text-align: center;
+  padding: 20px;
+}
+
+.footer-content {
+  margin-top: 10px;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #ffffff; /* Texto branco */
+  margin: 0 10px;
+  font-size: 24px;
+}
+
+.social-icon:hover {
+  color: #ffd700; /* Dourado no hover */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .principal {
+      padding: 20px; /* Reduzir o preenchimento em telas menores */
+  }
+  
+  .title {
+      font-size: 24px; /* Tamanho da fonte do título em telas pequenas */
+  }
+  
+  .input {
+      font-size: 14px; /* Tamanho da fonte do input em telas pequenas */
+  }
+}

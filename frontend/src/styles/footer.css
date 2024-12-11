@@ -1,0 +1,27 @@
+footer {
+  background-color: #003366; /* Azul escuro */
+  color: white; /* Texto branco */
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.social-media {
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: white; /* Cor do ícone */
+  margin: 0 10px;
+  font-size: 24px; /* Tamanho do ícone */
+  transition: color 0.3s;
+}
+
+.social-icon:hover {
+  color: #ffcc00; /* Cor ao passar o mouse */
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Confirmação de Empréstimo - Biblioteca</title>
+    <link rel="stylesheet" href="../styles/emprestimo.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">Biblioteca Online</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../pages/emprestimoUser.html">Empréstimos</a></li>
+                    <li><a href="../pages/emprestimoRenovacao.html">Renovação de Empréstimos</a></li>
+                    <li><a href="../pages/devolucao.html">Devoluções</a></li>
+                    <li><a href="../../index.html">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="form-section">
+                <h2 class="section-title">Confirmação de Empréstimo</h2>
+                <p>Visualize as solicitações de empréstimos e confirme quando o usuário retirar o livro.</p>
+                <div id="reservas-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome do Usuário</th>
+                                <th>Título do Livro</th>
+                                <th>Data da Solicitação</th>
+                                <th>Status</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservasTbody">
+                            <!-- Reservas serão listadas aqui -->
+                        </tbody>
+                    </table>
+                    <p id="mensagem-vazia" style="display: none;">Nenhuma reserva pendente encontrada.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Biblioteca Online</p>
+    </footer>
+
+    <script src="../scripts/emprestimoBibliotecario.js"></script>
+</body>
+
+</html>
