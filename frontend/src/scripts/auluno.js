@@ -14,7 +14,7 @@ const livrosPorPagina = 9;
 let livrosAtuais = []; // Agora, começamos com uma lista vazia, que será preenchida via API
 
 // Simulação do nome do usuário logado
-const usuarioLogado = "Milly"; // Substitua pelo nome dinâmico do usuário logado
+const usuarioLogado = ""; // Substitua pelo nome dinâmico do usuário logado
 
 // Função para exibir o nome do usuário no título
 function exibirNomeUsuario() {
