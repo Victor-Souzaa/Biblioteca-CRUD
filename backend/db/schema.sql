@@ -15,8 +15,6 @@ CREATE TABLE Usuario (
     data_bloqueio DATE  -- Nova coluna para armazenar a data de bloqueio do usuário
 );
 
-
-
 -- Criação da Tabela de Títulos
 CREATE TABLE Titulo (
     id_titulo SERIAL PRIMARY KEY,
@@ -75,7 +73,6 @@ CREATE TABLE Emprestimo (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
 -- Criação da Tabela de Multas
 CREATE TABLE Multa (
     id SERIAL PRIMARY KEY,
@@ -127,36 +124,41 @@ CREATE TABLE Reserva (
         ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-ALTER TABLE Emprestimo ADD COLUMN data_renovacao DATE;
+-- Inserir Título
+INSERT INTO Titulo (nome, isbn, autor, editora, assunto, edicao)
+VALUES 
+  ('Livro Exemplo', '9781234567890', 'Autor Exemplo', 'Editora Exemplo', 'Assunto Exemplo', '1ª edição');
 
--- Criando um Administrador
+-- Inserir Acervo com id_titulo existente
+INSERT INTO Acervo (id_titulo, data_inclusao)
+VALUES 
+  (1, CURRENT_DATE);  -- Certifique-se de que id_titulo 1 existe na tabela Titulo
+
+-- Inserir Exemplares com id_acervo válido
+INSERT INTO Exemplares (id_acervo, estado, status_disponibilidade)
+VALUES (1, 'Bom', TRUE);  -- id_acervo 1 deve existir na tabela Acervo
+
+-- Criar Administrador
 INSERT INTO Usuario (nome, email, senha, tipo_usuario) 
 VALUES ('Administrador Exemplo', 'admin@exemplo.com', 'senha123', 'Administrador');
 
--- Criando um Bibliotecário
+-- Criar Bibliotecário
 INSERT INTO Usuario (nome, email, senha, tipo_usuario, matricula) 
 VALUES ('Bibliotecário Exemplo', 'bibliotecario@exemplo.com', 'senha123', 'Bibliotecario', 'BIB123');
 
--- Criando um Aluno
+-- Criar Aluno
 INSERT INTO Usuario (nome, email, senha, tipo_usuario, matricula) 
 VALUES ('Aluno Exemplo', 'aluno@exemplo.com', 'senha123', 'Aluno', 'ALUNO123');
 
--- Criando um Professor
+-- Criar Professor
 INSERT INTO Usuario (nome, email, senha, tipo_usuario, matricula) 
 VALUES ('Professor Exemplo', 'professor@exemplo.com', 'senha123', 'Professor', 'PROF123');
 
-SELECT id, data_pegou, data_devolveu, data_renovacao FROM Emprestimo WHERE data_renovacao IS NOT NULL;
+-- Inserir Empréstimo com Exemplares válidos
+INSERT INTO Emprestimo (id_usuario, id_exemplar, data_pegou, data_devolveu, data_renovacao)
+VALUES (1, 1, NOW(), NULL, NULL);  -- id_exemplar 1 deve existir na tabela Exemplares
 
-INSERT INTO Emprestimo (id, id_usuario, id_exemplar, data_pegou, data_devolveu, data_renovacao)
-VALUES
-  (1, 123, 456, NOW() - INTERVAL '16 days', NULL, NULL);
-
-INSERT INTO Emprestimo (id, id_usuario, id_exemplar, data_pegou, data_devolveu, data_renovacao)
-VALUES
-  (2, 124, 457, NOW() - INTERVAL '30 days', NOW() - INTERVAL '10 days', NULL);
-
-
-
+-- Alterar tipo de dado ISBN na tabela Titulo
 ALTER TABLE Titulo
 ALTER COLUMN isbn TYPE VARCHAR(20);
 
@@ -285,5 +287,11 @@ INSERT INTO Titulo (nome, isbn, autor, editora, assunto, edicao) VALUES
 ('Swift Programming for iOS Development', '978-8901234573', 'Matthew Mathias', 'OReilly Media', 'Swift', '2ª Edição'),
 ('Hadoop: The Definitive Guide', '978-9012345684', 'Tom White', 'OReilly Media', 'Big Data', '4ª Edição'),
 ('Learning R for Data Analysis', '978-0123456795', 'Robert I. Kabacoff', 'OReilly Media', 'R', '2ª Edição');
+
+
+
+
+
+
 
 
